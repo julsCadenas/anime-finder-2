@@ -18,7 +18,7 @@ const Header = () => {
                     onClick={toggleSidebar}
                 >
                     <svg
-                        className="w-6 h-6"
+                        className="w-8 h-8"
                         fill="none"
                         stroke="currentColor"
                         viewBox="0 0 24 24"
@@ -44,7 +44,7 @@ const Header = () => {
                     } transition-transform duration-150 ease-in-out md:hidden`}
                 >
                     <div className="flex flex-col h-full">
-                        <div className="flex justify-between items-center p-4">
+                        <div className="flex justify-between items-center p-3">
                             <h1 className="text-3xl cursor-pointer hover:text-gray-300 transition-colors">
                                 Find Anime
                             </h1>
