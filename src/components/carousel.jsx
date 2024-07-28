@@ -22,16 +22,16 @@ const Carousel = ({ animeList }) => {
                     scrollBehavior: 'auto', 
                     willChange: 'transform',
                     overflowX: 'scroll',
-                    WebkitOverflowScrolling: 'touch', 
-                    scrollbarWidth: 'none', 
-                    msOverflowStyle: 'none' 
+                    WebkitOverflowScrolling: 'touch',
+                    scrollbarWidth: 'none',
+                    msOverflowStyle: 'none'
                 }}
                 {...events}
             >
                 {animeList.map(anime => (
                     <div key={anime.mal_id} className="min-w-max">
                         <img 
-                            src={anime.images.jpg.image_url} 
+                            src={anime.images.jpg.large_image_url} 
                             alt={anime.title} 
                             className="w-48 h-72 object-cover rounded-md" 
                             onDragStart={handleDragStart}
@@ -39,7 +39,6 @@ const Carousel = ({ animeList }) => {
                     </div>
                 ))}
             </div>
-            {/* Custom CSS to hide scrollbar for Webkit browsers (Chrome, Safari) */}
             <style jsx>{`
                 .relative > div::-webkit-scrollbar {
                     display: none;
