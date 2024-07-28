@@ -14,7 +14,7 @@ const Carousel = ({ animeList }) => {
     };
 
     return (
-        <div className="relative">
+        <section className="relative">
             <div
                 ref={scrollRef}
                 className="flex space-x-4 pt-16"
@@ -44,7 +44,7 @@ const Carousel = ({ animeList }) => {
                     display: none;
                 }
             `}</style>
-        </div>
+        </section>
     );
 };
 
