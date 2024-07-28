@@ -1,22 +1,5 @@
-::-webkit-scrollbar {
-    width: 5px;
-    height: 5px;
-}
- 
-::-webkit-scrollbar-track {
-    background: #080808;
-}
- 
-::-webkit-scrollbar-thumb {
-    background: #d1d5db;
-    border-radius: 5px;
-}
- 
-::-webkit-scrollbar-thumb:hover {
-    background: #d1d5db;
-}
 
-/* * {
+* {
     scrollbar-width: thin; 
     scrollbar-color: #d1d5db #080808; 
-} */
+}

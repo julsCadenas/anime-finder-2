@@ -17,10 +17,14 @@ const Carousel = ({ animeList }) => {
         <div className="relative">
             <div
                 ref={scrollRef}
-                className="flex overflow-x-scroll space-x-4 pt-16"
+                className="flex space-x-4 pt-16"
                 style={{ 
                     scrollBehavior: 'auto', 
-                    willChange: 'transform' 
+                    willChange: 'transform',
+                    overflowX: 'scroll',
+                    WebkitOverflowScrolling: 'touch', 
+                    scrollbarWidth: 'none', 
+                    msOverflowStyle: 'none' 
                 }}
                 {...events}
             >
@@ -35,6 +39,12 @@ const Carousel = ({ animeList }) => {
                     </div>
                 ))}
             </div>
+            {/* Custom CSS to hide scrollbar for Webkit browsers (Chrome, Safari) */}
+            <style jsx>{`
+                .relative > div::-webkit-scrollbar {
+                    display: none;
+                }
+            `}</style>
         </div>
     );
 };
