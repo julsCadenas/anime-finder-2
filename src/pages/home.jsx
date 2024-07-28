@@ -1,5 +1,6 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import axios from 'axios';
+import Carousel from '../components/carousel';
 
 const Home = () => {
     const [animeList, setAnimeList] = useState([]);
@@ -14,19 +15,10 @@ const Home = () => {
             });
     }, []);
 
+
     return (
         <div className="pl-11">
-            <div className="flex overflow-hidden space-x-4 pt-16">
-                {animeList.map(anime => (
-                    <div key={anime.mal_id} className="min-w-max">
-                        <img 
-                            src={anime.images.jpg.image_url} 
-                            alt={anime.title} 
-                            className="w-48 h-72 object-cover rounded-md" 
-                        />
-                    </div>
-                ))}
-            </div>
+            <Carousel animeList={animeList} />
         </div>
     );
 };
