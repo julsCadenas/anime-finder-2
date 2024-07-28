@@ -1,28 +1,28 @@
 import React, { useRef } from 'react';
+import useScrollOnDrag from 'react-scroll-ondrag';
 
 const Carousel = ({ animeList }) => {
     const scrollRef = useRef(null);
+    const { events } = useScrollOnDrag(scrollRef, {
+        runScroll: ({ dx }) => {
+            scrollRef.current.scrollLeft += dx * 1; 
+        }
+    });
 
-    const scrollLeft = () => {
-        scrollRef.current.scrollBy({
-            left: -300, 
-            behavior: 'smooth'
-        });
-    };
-
-    const scrollRight = () => {
-        scrollRef.current.scrollBy({
-            left: 300, 
-            behavior: 'smooth'
-        });
+    const handleDragStart = (e) => {
+        e.preventDefault();
     };
 
     return (
         <div className="relative">
             <div
                 ref={scrollRef}
-                className="flex overflow-x-hidden space-x-4 pt-16"
-                style={{ scrollBehavior: 'smooth' }}
+                className="flex overflow-x-scroll space-x-4 pt-16"
+                style={{ 
+                    scrollBehavior: 'auto', 
+                    willChange: 'transform' 
+                }}
+                {...events}
             >
                 {animeList.map(anime => (
                     <div key={anime.mal_id} className="min-w-max">
@@ -30,22 +30,11 @@ const Carousel = ({ animeList }) => {
                             src={anime.images.jpg.image_url} 
                             alt={anime.title} 
                             className="w-48 h-72 object-cover rounded-md" 
+                            onDragStart={handleDragStart}
                         />
                     </div>
                 ))}
             </div>
-            <button
-                onClick={() => scrollLeft(scrollRef)}
-                className="absolute top-16 h-72 bg-black bg-opacity-50 p-2 flex items-center justify-center hover:bg-opacity-75 focus:outline-none rounded-l text-gray-100"
-            >
-                &#10094;
-            </button>
-            <button
-                onClick={() => scrollRight(scrollRef)}
-                className="absolute right-0 top-16 h-72 bg-black bg-opacity-50 p-2 flex items-center justify-center hover:bg-opacity-75 focus:outline-none rounded-l text-gray-100"
-            >
-                &#10095;
-            </button>
         </div>
     );
 };
