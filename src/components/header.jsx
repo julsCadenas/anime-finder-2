@@ -41,7 +41,7 @@ const Header = () => {
                 <div
                     className={`fixed top-0 left-0 w-full h-full bg-black transform ${
                         isSidebarOpen ? 'translate-y-0' : '-translate-y-full'
-                    } transition-transform duration-150 ease-in-out md:hidden`}
+                    } transition-transform duration-150 ease-in-out md:hidden px-4`}
                 >
                     <div className="flex justify-between items-center p-4">
                         <h1 className="text-2xl cursor-pointer hover:text-gray-300 transition-colors">
