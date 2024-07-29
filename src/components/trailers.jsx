@@ -15,7 +15,7 @@ const Trailers = ({ animeLatest }) => {
             <div className="flex flex-col font-Montserrat bg-black">
                 {randomAnime ? (
                     <>
-                        <div className="flex flex-col md:flex-row">
+                        <div className="flex flex-col lg:flex-row">
                             <aside className="flex flex-col text-neutral-50 max-w-4xl w-full mr-10">
                                 <p className="text-neutral-50 text-2xl font-bold mb-3">Airing Now</p>
                                 <p className="text-3xl space-y-1 md:text-5xl font-bold mb-2">{randomAnime.title}</p>
@@ -23,7 +23,7 @@ const Trailers = ({ animeLatest }) => {
                                 {/* <p className="text-lg md:text-xl mb-2"><strong>Status: </strong> {randomAnime.status}</p> */}
                                 <p className="text-base md:text-lg mb-2"><strong>Airing:</strong> {randomAnime.aired.string}</p>
                                 <p className="text-sm md:text-base leading-6 mb-2 text-justify">{randomAnime.synopsis}</p>
-                                <button className="bg-neutral-50 text-black text-lg rounded-md w-24 font-bold hover:bg-gray-300 mt-2">See All</button>
+                                <button className="bg-neutral-50 text-black text-xl rounded-md w-28 font-bold hover:bg-gray-300 mt-2 mb-4">See All</button>
                             </aside>
                             <div className="relative w-full h-auto md:pb-[40%] pb-[56.25%] overflow-hidden rounded-md mt-4 mb-4 md:mt-0 md:mb-0">
                                 {randomAnime.trailer && randomAnime.trailer.embed_url ? (
