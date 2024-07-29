@@ -47,9 +47,10 @@ const Home = () => {
 
     return (
         <div className="px-6 pt-16 md:px-28 md:pt-20">
+            
             <Carousel animeList={animeLatest} />
             <Trailers animeLatest={animeLatest} />
-            <div className='pb-5'>
+            <div className='pb-5 pt-5 md:pt-0'>
                 <p className='text-neutral-50 font-Montserrat text-2xl font-bold mb-3'>Top Anime</p>
                 <Carousel animeList={animeList} />
             </div>
