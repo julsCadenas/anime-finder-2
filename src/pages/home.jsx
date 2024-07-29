@@ -50,7 +50,7 @@ const Home = () => {
             
             <Carousel animeList={animeLatest} />
             <Trailers animeLatest={animeLatest} />
-            <div className='pb-5 pt-5 md:pt-0'>
+            <div className='pb-10 pt-16 md:pt-0'>
                 <p className='text-neutral-50 font-Montserrat text-2xl font-bold mb-3'>Top Anime</p>
                 <Carousel animeList={animeList} />
             </div>
