@@ -46,10 +46,13 @@ const Home = () => {
     }, []);
 
     return (
-        <div className="px-11">
+        <div className="px-6 pt-16 md:px-28 md:pt-20">
             <Carousel animeList={animeLatest} />
-            {/* <p className='text-neutral-50 text-2xl font-medium font-Montserrat mt-2'>Top Anime</p> */}
             <Trailers animeLatest={animeLatest} />
+            <div className='pb-5'>
+                <p className='text-neutral-50 font-Montserrat text-2xl font-bold mb-3'>Top Anime</p>
+                <Carousel animeList={animeList} />
+            </div>
         </div>
     );
 };

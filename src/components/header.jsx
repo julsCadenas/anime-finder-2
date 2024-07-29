@@ -9,7 +9,7 @@ const Header = () => {
 
     return (
         <header className="fixed top-0 left-0 w-full bg-black bg-opacity-70 backdrop-filter backdrop-blur-lg p-3 z-50">
-            <nav className="font-Montserrat text-neutral-50 font-medium flex items-center justify-between mx-auto max-w-7xl px-4">
+            <nav className="font-Montserrat text-neutral-50 font-medium flex items-center justify-between mx-auto max-w-7xl">
                 <h1 className="text-3xl cursor-pointer hover:text-gray-300 transition-colors">
                     Find Anime
                 </h1>

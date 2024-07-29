@@ -17,7 +17,7 @@ const Carousel = ({ animeList }) => {
         <section className="relative">
             <div
                 ref={scrollRef}
-                className="flex space-x-3 pt-16"
+                className="flex space-x-3"
                 style={{ 
                     scrollBehavior: 'auto', 
                     willChange: 'transform',
