@@ -23,7 +23,7 @@ const Search = () => {
         });
     }, [title]);
 
-    const handleInputChange = (e) => {
+    const handleInput = (e) => {
         setTitle(e.target.value);
     };
 
@@ -35,8 +35,8 @@ const Search = () => {
                         type="text"
                         id="default-search"
                         value={title}
-                        onChange={handleInputChange}
-                        className="max-w-96 max-h-20 w-80 h-full md:w-full md:h-full pl-5 md:pl-8 bg-black bg-opacity-5 backdrop-filter backdrop-blur-sm border-b-2 border-transparent 
+                        onChange={handleInput}
+                        className="w-full h-12 pl-3 bg-black bg-opacity-5 backdrop-filter backdrop-blur-sm border-b-2 border-transparent 
                                     focus:border-neutral-50 focus:outline-none font-Montserrat text-lg md:text-xl 
                                     text-neutral-50 mt-12 md:mt-20 transition-colors duration-300"
                         placeholder="Search for Anime here"
@@ -46,13 +46,13 @@ const Search = () => {
             {isLoading ? (
                 <Loading />  
             ) : (
-                <div className="flex justify-center overflow-y-auto h-[calc(100vh-96px)]">
-                    <ul className="text-neutral-50 flex flex-col items-start font-Montserrat w-full max-w-3xl">
+                <div className="flex justify-center items-start overflow-y-auto h-[calc(100vh-96px)]">
+                    <ul className="text-neutral-50 flex flex-col items-center font-Montserrat w-full max-w-3xl">
                         {animeList.map((anime) => (
-                            <li key={anime.mal_id} className='text-xl flex items-center gap-3 mt-5'>
+                            <li key={anime.mal_id} className='text-base md:text-xl flex items-center gap-3 mt-5 w-full md:w-4/5 lg:w-3/4'>
                                 <img src={anime.images.jpg.large_image_url}
                                     className='w-16 h-auto rounded-md' />
-                                {anime.title}
+                                <span className='flex-1'>{anime.title}</span>
                             </li>
                         ))}
                     </ul>
