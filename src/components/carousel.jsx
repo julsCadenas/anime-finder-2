@@ -1,7 +1,7 @@
 import React, { useRef } from 'react';
 import useScrollOnDrag from 'react-scroll-ondrag';
 
-const Carousel = ({ animeList }) => {
+const Carousel = ({ animeList, title }) => {
     const scrollRef = useRef(null);
     const { events } = useScrollOnDrag(scrollRef, {
         runScroll: ({ dx }) => {
@@ -15,6 +15,7 @@ const Carousel = ({ animeList }) => {
 
     return (
         <section className="relative">
+            <p className='text-neutral-50 font-Montserrat text-2xl font-bold mb-3'>{title}</p>
             <div
                 ref={scrollRef}
                 className="flex space-x-3"
