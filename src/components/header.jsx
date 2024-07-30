@@ -13,6 +13,11 @@ const Header = () => {
                 <h1 className="text-3xl cursor-pointer hover:text-gray-300 transition-colors">
                     Find Anime
                 </h1>
+                <svg xmlns="http://www.w3.org/2000/svg" className="icon icon-tabler icon-tabler-search md:invisible ml-auto mr-5 hover:text-gray-300" width="24" height="24" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor" fill="none" strokeLinecap="round" strokeLinejoin="round">
+                    <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                    <circle cx="10" cy="10" r="7" />
+                    <line x1="16.6" y1="16.6" x2="21" y2="21" />
+                </svg>
                 <button
                     className="block md:hidden text-neutral-50 focus:outline-none hover:text-gray-300 transition-all"
                     onClick={toggleSidebar}
@@ -36,6 +41,13 @@ const Header = () => {
                     </li>
                     <li className="cursor-pointer hover:text-gray-300 transition-colors">
                         Airing
+                    </li>
+                    <li className="cursor-pointer hover:text-gray-300 transition-colors">
+                        <svg xmlns="http://www.w3.org/2000/svg" className="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor" fill="none" strokeLinecap="round" strokeLinejoin="round">
+                            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                            <circle cx="10" cy="10" r="7" />
+                            <line x1="16.6" y1="16.6" x2="21" y2="21" />
+                        </svg>
                     </li>
                 </ul>
                 <div
