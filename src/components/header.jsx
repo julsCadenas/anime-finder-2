@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Search from "./search"; 
 
 const Header = () => {
@@ -8,6 +8,20 @@ const Header = () => {
     const toggleSidebar = () => {
         setIsSidebarOpen(!isSidebarOpen);
     };
+
+    useEffect(() => {
+        const handleKeyDown = (e) => {
+          if (e.key === 'Escape') {
+            toggleSearch()
+          }
+        };
+    
+        window.addEventListener('keydown', handleKeyDown);
+    
+        return () => {
+          window.removeEventListener('keydown', handleKeyDown);
+        };
+      }, []); 
 
     const toggleSearch = () => {
         setIsSearchOpen(!isSearchOpen);
