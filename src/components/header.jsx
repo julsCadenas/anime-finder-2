@@ -3,7 +3,7 @@ import Search from "./search";
 
 const Header = () => {
     const [isSidebarOpen, setIsSidebarOpen] = useState(false);
-    const [isSearchOpen, setIsSearchOpen] = useState(true);
+    const [isSearchOpen, setIsSearchOpen] = useState(null);
 
     const toggleSidebar = () => {
         setIsSidebarOpen(!isSidebarOpen);
@@ -12,7 +12,9 @@ const Header = () => {
     useEffect(() => {
         const handleKeyDown = (e) => {
           if (e.key === 'Escape') {
-            toggleSearch()
+            if(isSearchOpen){
+                toggleSearch()
+            }
           }
         };
     
@@ -21,7 +23,7 @@ const Header = () => {
         return () => {
           window.removeEventListener('keydown', handleKeyDown);
         };
-      }, []); 
+      }, [isSearchOpen]); 
 
     const toggleSearch = () => {
         setIsSearchOpen(!isSearchOpen);
