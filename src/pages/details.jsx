@@ -27,11 +27,11 @@ const Details = () => {
                         {anime.images && anime.images.jpg && (
                             <aside className="flex flex-col items-center">
                                 <img
-                                    className="w-80 h-auto rounded-md"
+                                    className="w-72 md:w-80 h-auto rounded-md"
                                     src={anime.images.jpg.large_image_url}
                                     alt={anime.title}
                                 />
-                                <div className="text-neutral-50 font-Montserrat text-lg md:text-xl border-2 border-neutral-50 p-2 w-80 flex justify-center items-center rounded-xl mt-3">
+                                <div className="text-neutral-50 font-Montserrat text-lg md:text-xl border-2 border-neutral-50 p-2 w-72 md:w-80 flex justify-center items-center rounded-xl mt-3">
                                     <p className="mr-5"><strong>Score: {anime.score}</strong></p>
                                     <p><strong>Rank: {anime.rank}</strong></p>
                                 </div>
