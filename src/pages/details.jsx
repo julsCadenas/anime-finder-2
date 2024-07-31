@@ -47,6 +47,18 @@ const Details = () => {
                                 <p><strong>Type: </strong>{anime.type}</p>
                                 <p><strong>Episodes: </strong>{anime.episodes}</p>
                                 <p><strong>Duration: </strong>{anime.duration}</p>
+                                <p>
+                                    <strong>Broadcast: </strong>
+                                    {anime.broadcast ? (
+                                        <>
+                                            <span>{anime.broadcast.day}</span>, 
+                                            <span> {anime.broadcast.time}</span>, 
+                                            <span> {anime.broadcast.timezone}</span>
+                                        </>
+                                    ) : (
+                                        <span>No broadcast information available.</span>
+                                    )}
+                                </p>
                                 <p><strong>Status: </strong>{anime.status}</p>
                                 <p><strong>Studios: </strong>{anime.studios && anime.studios.map(studio => studio.name).join(', ')}</p>
                                 <p><strong>Source: </strong>{anime.source}</p>

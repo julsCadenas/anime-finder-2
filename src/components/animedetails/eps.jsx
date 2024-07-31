@@ -14,7 +14,11 @@ const Episodes = ({id}) => {
     }, [id]);
 
     return (
-        <>Episodes</>
+        <main>
+            <div>
+                Episodes
+            </div>
+        </main>
     )
 }
 
