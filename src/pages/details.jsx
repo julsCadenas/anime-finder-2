@@ -60,7 +60,7 @@ const Details = () => {
                         </article>
                     </div>
                     <div className="w-full mt-8">
-                        <MoreDetails id={anime.id} />
+                        <MoreDetails id={id} />
                     </div>
                 </div>
             )}
