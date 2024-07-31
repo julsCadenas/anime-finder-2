@@ -12,28 +12,54 @@ const Details = () => {
 
     useEffect(() => {
         fetchAnime(link, (data) => {
-            setAnime(data)
-            setIsLoading(false)
-        }
-    )}, [id]);
+            setAnime(data);
+            setIsLoading(false);
+        });
+    }, [id]);
 
-    return(
-        <main>
-            { isLoading ? (
+    return (
+        <main className="flex justify-center min-h-screen pt-16">
+            {isLoading ? (
                 <Loading />
             ) : (
-                <div className='flex justify-center items-center h-screen'>
-                    <aside className='max-h-auto max-w-80'>
+                <div className="flex flex-col md:flex-row items-center md:items-start max-w-screen-lg mx-4 md:mx-auto p-4">
+                    <aside className="flex-shrink-0 mb-4 md:mb-0">
                         {anime.images && anime.images.jpg && (
-                            <img className='w-full h-auto rounded-md' src={anime.images.jpg.large_image_url}></img> 
+                            <aside className="flex flex-col items-center">
+                                <img
+                                    className="w-80 h-auto rounded-md"
+                                    src={anime.images.jpg.large_image_url}
+                                    alt={anime.title}
+                                />
+                                <div className="text-neutral-50 font-Montserrat text-lg md:text-xl border-2 border-neutral-50 p-2 w-80 flex justify-center items-center rounded-xl mt-3">
+                                    <p className="mr-5"><strong>Score: {anime.score}</strong></p>
+                                    <p><strong>Rank: {anime.rank}</strong></p>
+                                </div>
+                            </aside>
                         )}
                     </aside>
-                    <p className='text-neutral-50'>{anime.title}</p>
+                    <article className="text-neutral-50 font-Montserrat text-left ml-0 md:ml-5 md:text-left">
+                        <p className="text-xl md:text-5xl font-bold">{anime.title}</p>
+                        <p className="text-neutral-400 text-lg md:text-3xl mt-1 font-semibold">{anime.title_english}</p>
+                        <div className="mt-2 text-sm leading-6">
+                            <p><strong>Type: </strong>{anime.type}</p>
+                            <p><strong>Episodes: </strong>{anime.episodes}</p>
+                            <p><strong>Duration: </strong>{anime.duration}</p>
+                            <p><strong>Status: </strong>{anime.status}</p>
+                            <p><strong>Studios: </strong>{anime.studios && anime.studios.map(studio => studio.name).join(', ')}</p>
+                            <p><strong>Source: </strong>{anime.source}</p>
+                            <p><strong>Genres: </strong>{anime.genres && anime.genres.map(genre => genre.name).join(', ')}</p>
+                            <p><strong>Themes: </strong>{anime.themes && anime.themes.map(theme => theme.name).join(', ')}</p>
+                            <p><strong>Demographics: </strong>{anime.demographics && anime.demographics.map(demo => demo.name).join(', ')}</p>
+                            <p><strong>Rating: </strong>{anime.rating}</p>
+                            <p className="mt-2"><strong>Synopsis:</strong></p>
+                            <p className="text-justify text-base">{anime.synopsis}</p>
+                        </div>
+                    </article>
                 </div>
-            )
-            }
+            )}
         </main>
-    )
+    );
 };
 
 export default Details;
