@@ -39,7 +39,7 @@ const Header = () => {
         <header className="fixed top-0 left-0 w-full bg-black bg-opacity-70 backdrop-filter backdrop-blur-lg p-3 z-50">
             <nav className="font-Montserrat text-neutral-50 font-medium flex items-center justify-between mx-auto max-w-7xl">
                 <h1 className="text-3xl cursor-pointer hover:text-gray-400 transition-colors">
-                    <Link to='/home'>Find Anime</Link>
+                    <Link to='/home'>AniFinder</Link>
                 </h1>
                 <svg
                     xmlns="http://www.w3.org/2000/svg"
