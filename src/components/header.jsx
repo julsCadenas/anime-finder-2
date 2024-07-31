@@ -38,12 +38,12 @@ const Header = () => {
     return (
         <header className="fixed top-0 left-0 w-full bg-black bg-opacity-70 backdrop-filter backdrop-blur-lg p-3 z-50">
             <nav className="font-Montserrat text-neutral-50 font-medium flex items-center justify-between mx-auto max-w-7xl">
-                <h1 className="text-3xl cursor-pointer hover:text-gray-300 transition-colors">
+                <h1 className="text-3xl cursor-pointer hover:text-gray-400 transition-colors">
                     <Link to='/home'>Find Anime</Link>
                 </h1>
                 <svg
                     xmlns="http://www.w3.org/2000/svg"
-                    className="icon icon-tabler icon-tabler-search md:invisible ml-auto mr-5 hover:text-gray-300 cursor-pointer"
+                    className="icon icon-tabler icon-tabler-search md:invisible ml-auto mr-5 hover:text-gray-400 cursor-pointer"
                     width="24"
                     height="24"
                     viewBox="0 0 24 24"
@@ -59,7 +59,7 @@ const Header = () => {
                     <line x1="16.6" y1="16.6" x2="21" y2="21" />
                 </svg>
                 <button
-                    className="block md:hidden text-neutral-50 focus:outline-none hover:text-gray-300 transition-all"
+                    className="block md:hidden text-neutral-50 focus:outline-none hover:text-gray-400 transition-all"
                     onClick={toggleSidebar}
                 >
                     <svg
@@ -73,16 +73,16 @@ const Header = () => {
                     </svg>
                 </button>
                 <ul className="hidden md:flex space-x-8 text-lg">
-                    <li className="cursor-pointer hover:text-gray-300 transition-colors">
+                    <li className="cursor-pointer hover:text-gray-400 transition-colors">
                         <Link to='/home'>Home</Link>
                     </li>
-                    <li className="cursor-pointer hover:text-gray-300 transition-colors">
+                    <li className="cursor-pointer hover:text-gray-400 transition-colors">
                         <Link to='/top'>Top Anime</Link>
                     </li>
-                    <li className="cursor-pointer hover:text-gray-300 transition-colors">
+                    <li className="cursor-pointer hover:text-gray-400 transition-colors">
                         <Link to='/airing'>Airing</Link>
                     </li>
-                    <li className="cursor-pointer hover:text-gray-300 transition-colors">
+                    <li className="cursor-pointer hover:text-gray-400 transition-colors">
                         <svg
                             xmlns="http://www.w3.org/2000/svg"
                             className="icon icon-tabler icon-tabler-search"
@@ -109,10 +109,10 @@ const Header = () => {
                 >
                     <div className="flex flex-col h-full">
                         <div className="flex justify-between items-center p-3">
-                            <h1 className="text-3xl cursor-pointer hover:text-gray-300 transition-colors">
+                            <h1 className="text-3xl cursor-pointer hover:text-gray-400 transition-colors">
                                 Find Anime
                             </h1>
-                            <button onClick={toggleSidebar} className="text-neutral-50 focus:outline-none hover:text-gray-300 transition-colors px-3">
+                            <button onClick={toggleSidebar} className="text-neutral-50 focus:outline-none hover:text-gray-400 transition-colors px-3">
                                 <svg
                                     className="w-6 h-6"
                                     fill="none"
@@ -125,13 +125,13 @@ const Header = () => {
                             </button>
                         </div>
                         <ul className="flex flex-col p-4 space-y-4 text-lg">
-                            <li className="cursor-pointer hover:text-gray-300 transition-colors" onClick={toggleSidebar}>
+                            <li className="cursor-pointer hover:text-gray-400 transition-colors" onClick={toggleSidebar}>
                                 <Link to='/home'>Home</Link>
                             </li>
-                            <li className="cursor-pointer hover:text-gray-300 transition-colors" onClick={toggleSidebar}>
+                            <li className="cursor-pointer hover:text-gray-400 transition-colors" onClick={toggleSidebar}>
                                 <Link to='/top'>Top Anime</Link>
                             </li>
-                            <li className="cursor-pointer hover:text-gray-300 transition-colors" onClick={toggleSidebar}>
+                            <li className="cursor-pointer hover:text-gray-400 transition-colors" onClick={toggleSidebar}>
                                 <Link to='/airing'>Airing</Link>
                             </li>
                         </ul>
