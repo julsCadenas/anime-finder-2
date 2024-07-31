@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import Loading from './loading';
 
 const Trailers = ({ animeLatest }) => {
     const [randomAnime, setRandomAnime] = useState(null);
+    const navigate = useNavigate();
 
     useEffect(() => {
         if (animeLatest && animeLatest.length > 0) {
@@ -10,6 +12,10 @@ const Trailers = ({ animeLatest }) => {
             setRandomAnime(animeLatest[randomIndex]);
         }
     }, [animeLatest]);
+
+    const animeClick = (id) => {
+        navigate(`/anime/${id}`)
+    }
 
     return (
         <section className="mt-20">
@@ -24,7 +30,7 @@ const Trailers = ({ animeLatest }) => {
                                 {/* <p className="text-lg md:text-xl mb-2"><strong>Status: </strong> {randomAnime.status}</p> */}
                                 <p className="text-base md:text-lg mb-2"><strong>Airing:</strong> {randomAnime.aired.string}</p>
                                 <p className="text-sm md:text-base leading-6 mb-2 text-justify">{randomAnime.synopsis}</p>
-                                <button className="bg-neutral-50 text-black text-xl rounded-md w-28 font-bold hover:bg-gray-300 mt-2 mb-4">See All</button>
+                                <button className="bg-neutral-50 text-black text-xl rounded-md w-28 font-bold hover:bg-gray-300 mt-2 mb-4" onClick={()=>animeClick(randomAnime.mal_id)}>See All</button>
                             </aside>
                             <div className="relative w-full h-auto md:pb-[40%] pb-[56.25%] overflow-hidden rounded-md mt-4 mb-4 md:mt-0 md:mb-0">
                                 {randomAnime.trailer && randomAnime.trailer.embed_url ? (
@@ -51,3 +57,5 @@ const Trailers = ({ animeLatest }) => {
 };
 
 export default Trailers;
+
+

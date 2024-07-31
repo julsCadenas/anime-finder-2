@@ -1,8 +1,10 @@
 import React, { useRef } from 'react';
+import { useNavigate } from 'react-router-dom';
 import useScrollOnDrag from 'react-scroll-ondrag';
 
 const Carousel = ({ animeList, title }) => {
     const scrollRef = useRef(null);
+    const navigate = useNavigate();;
     const { events } = useScrollOnDrag(scrollRef, {
         runScroll: ({ dx }) => {
             scrollRef.current.scrollLeft += dx * 1; 
@@ -12,6 +14,10 @@ const Carousel = ({ animeList, title }) => {
     const handleDragStart = (e) => {
         e.preventDefault();
     };
+
+    const animeClick = (id) => {
+        navigate(`/anime/${id}`)
+    }
 
     return (
         <section className="relative">
@@ -36,11 +42,12 @@ const Carousel = ({ animeList, title }) => {
                             alt={anime.title} 
                             className="w-48 h-72 object-cover rounded-md" 
                             onDragStart={handleDragStart}
+                            onClick={()=>animeClick(anime.mal_id)}
                         />
                     </div>
                 ))}
             </div>
-            <style jsx>{`
+            <style>{`
                 .relative > div::-webkit-scrollbar {
                     display: none;
                 }

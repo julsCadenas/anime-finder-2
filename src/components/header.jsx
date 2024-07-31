@@ -1,9 +1,11 @@
 import { useState, useEffect } from "react";
+import { Link, useNavigate } from 'react-router-dom';
 import Search from "./search"; 
 
 const Header = () => {
     const [isSidebarOpen, setIsSidebarOpen] = useState(false);
     const [isSearchOpen, setIsSearchOpen] = useState(null);
+    const navigate = useNavigate();
 
     const toggleSidebar = () => {
         setIsSidebarOpen(!isSidebarOpen);
@@ -68,13 +70,13 @@ const Header = () => {
                 </button>
                 <ul className="hidden md:flex space-x-8 text-lg">
                     <li className="cursor-pointer hover:text-gray-300 transition-colors">
-                        Home
+                        <Link to='/home'>Home</Link>
                     </li>
                     <li className="cursor-pointer hover:text-gray-300 transition-colors">
-                        Top Anime
+                        <Link to='/top'>Top Anime</Link>
                     </li>
                     <li className="cursor-pointer hover:text-gray-300 transition-colors">
-                        Airing
+                        <Link to='/airing'>Airing</Link>
                     </li>
                     <li className="cursor-pointer hover:text-gray-300 transition-colors">
                         <svg
