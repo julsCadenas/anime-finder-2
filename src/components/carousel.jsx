@@ -1,14 +1,17 @@
-import React, { useRef } from 'react';
+import React, { useState, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import useScrollOnDrag from 'react-scroll-ondrag';
 
 const Carousel = ({ animeList, title }) => {
+    const [isDragging, setIsDragging] = useState(false);
     const scrollRef = useRef(null);
-    const navigate = useNavigate();;
+    const navigate = useNavigate();
     const { events } = useScrollOnDrag(scrollRef, {
         runScroll: ({ dx }) => {
             scrollRef.current.scrollLeft += dx * 1; 
-        }
+        },
+        onDragStart: () => setIsDragging(true),
+        onDragEnd: () => setIsDragging(false)
     });
 
     const handleDragStart = (e) => {
@@ -17,7 +20,7 @@ const Carousel = ({ animeList, title }) => {
 
     const animeClick = (id) => {
         navigate(`/anime/${id}`)
-    }
+    };
 
     return (
         <section className="relative">
@@ -40,9 +43,9 @@ const Carousel = ({ animeList, title }) => {
                         <img 
                             src={anime.images.jpg.large_image_url} 
                             alt={anime.title} 
-                            className="w-48 h-72 object-cover rounded-md" 
+                            className={`w-48 h-72 object-cover rounded-md ${isDragging ? 'pointer-events-none' : ''}`} 
                             onDragStart={handleDragStart}
-                            onClick={()=>animeClick(anime.mal_id)}
+                            onClick={() => !isDragging && animeClick(anime.mal_id)}
                         />
                     </div>
                 ))}
