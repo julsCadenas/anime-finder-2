@@ -4,32 +4,36 @@ import Search from "./search";
 
 const Header = () => {
     const [isSidebarOpen, setIsSidebarOpen] = useState(false);
-    const [isSearchOpen, setIsSearchOpen] = useState(null);
+    const [isSearchOpen, setIsSearchOpen] = useState(false); 
     const navigate = useNavigate();
 
     const toggleSidebar = () => {
         setIsSidebarOpen(!isSidebarOpen);
     };
 
-    useEffect(() => {
-        const handleKeyDown = (e) => {
-          if (e.key === 'Escape') {
-            if(isSearchOpen){
-                toggleSearch()
-            }
-          }
-        };
-    
-        window.addEventListener('keydown', handleKeyDown);
-    
-        return () => {
-          window.removeEventListener('keydown', handleKeyDown);
-        };
-      }, [isSearchOpen]); 
-
     const toggleSearch = () => {
         setIsSearchOpen(!isSearchOpen);
     };
+
+    const closeSearch = () => {
+        setIsSearchOpen(false);
+    };
+
+    useEffect(() => {
+        const handleKeyDown = (e) => {
+            if (e.key === 'Escape') {
+                if(isSearchOpen) {
+                    closeSearch();
+                }
+            }
+        };
+
+        window.addEventListener('keydown', handleKeyDown);
+
+        return () => {
+            window.removeEventListener('keydown', handleKeyDown);
+        };
+    }, [isSearchOpen]);
 
     return (
         <header className="fixed top-0 left-0 w-full bg-black bg-opacity-70 backdrop-filter backdrop-blur-lg p-3 z-50">
@@ -122,19 +126,19 @@ const Header = () => {
                         </div>
                         <ul className="flex flex-col p-4 space-y-4 text-lg">
                             <li className="cursor-pointer hover:text-gray-300 transition-colors" onClick={toggleSidebar}>
-                            <Link to='/home'>Home</Link>
+                                <Link to='/home'>Home</Link>
                             </li>
                             <li className="cursor-pointer hover:text-gray-300 transition-colors" onClick={toggleSidebar}>
-                            <Link to='/top'>Top Anime</Link>
+                                <Link to='/top'>Top Anime</Link>
                             </li>
                             <li className="cursor-pointer hover:text-gray-300 transition-colors" onClick={toggleSidebar}>
-                            <Link to='/airing'>Airing</Link>
+                                <Link to='/airing'>Airing</Link>
                             </li>
                         </ul>
                     </div>
                 </div>
             </nav>
-            {isSearchOpen && <Search />}
+            {isSearchOpen && <Search onClose={closeSearch} />}
         </header>
     );
 };

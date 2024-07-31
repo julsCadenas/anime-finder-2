@@ -1,11 +1,13 @@
 import React, { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import fetchAnime from '../modules/fetchanime';
 import Loading from './loading';
 
-const Search = () => {
+const Search = ({ onClose }) => {
     const [animeList, setAnimeList] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
     const [title, setTitle] = useState('');
+    const navigate = useNavigate();
 
     useEffect(() => {
         if (title.trim() === '') {
@@ -22,6 +24,11 @@ const Search = () => {
             setIsLoading(false);
         });
     }, [title]);
+
+    const animeClick = (id) => {
+        navigate(`/anime/${id}`);
+        onClose();
+    };
 
     const handleInput = (e) => {
         setTitle(e.target.value);
@@ -49,7 +56,7 @@ const Search = () => {
                 <div className="flex justify-center items-start overflow-y-auto h-[calc(100vh-96px)]">
                     <ul className="text-neutral-50 flex flex-col items-center font-Montserrat w-full max-w-3xl">
                         {animeList.map((anime) => (
-                            <li key={anime.mal_id} className='text-base md:text-xl flex items-center gap-3 mt-5 w-full md:w-4/5 lg:w-3/4'>
+                            <li key={anime.mal_id} className='text-base md:text-xl flex items-center gap-3 mt-5 w-full md:w-4/5 lg:w-3/4 cursor-pointer' onClick={() => animeClick(anime.mal_id)}>
                                 <img src={anime.images.jpg.large_image_url}
                                     className='w-16 h-auto rounded-md' />
                                 <span className='flex-1'>{anime.title}</span>
