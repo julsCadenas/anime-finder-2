@@ -66,7 +66,7 @@ const Search = ({ onClose }) => {
                 <div className="flex justify-center items-start overflow-y-auto h-[calc(100vh-96px)]">
                     <ul className="text-neutral-50 flex flex-col items-center font-Montserrat w-full max-w-3xl" onMouseDown={searchMouseDown}>
                         {animeList.map((anime) => (
-                            <li key={anime.mal_id} className='text-base md:text-xl flex items-center gap-3 mt-5 w-full md:w-4/5 lg:w-3/4 cursor-pointer' onClick={() => animeClick(anime.mal_id)}>
+                            <li key={anime.mal_id} className='text-base md:text-xl flex items-center gap-3 mt-5 w-full md:w-4/5 lg:w-3/4 cursor-pointer hover:text-gray-300 font-medium' onClick={() => animeClick(anime.mal_id)}>
                                 <img src={anime.images.jpg.large_image_url}
                                     className='w-16 h-auto rounded-md' />
                                 <span className='flex-1'>{anime.title}</span>
