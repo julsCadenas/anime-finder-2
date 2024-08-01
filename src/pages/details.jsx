@@ -43,7 +43,7 @@ const Details = () => {
                         <article className="text-neutral-50 font-Montserrat text-left ml-0 md:ml-5 md:text-left">
                             <p className="text-xl md:text-5xl font-bold">{anime.title}</p>
                             <p className="text-neutral-400 text-lg md:text-3xl mt-1 font-semibold">{anime.title_english}</p>
-                            <div className="mt-2 text-sm leading-6">
+                            <section className="mt-3 text-sm leading-6">
                                 <p><strong>Type: </strong>{anime.type}</p>
                                 <p><strong>Episodes: </strong>{anime.episodes}</p>
                                 <p><strong>Duration: </strong>{anime.duration}</p>
@@ -66,12 +66,12 @@ const Details = () => {
                                 <p><strong>Themes: </strong>{anime.themes && anime.themes.map(theme => theme.name).join(', ')}</p>
                                 <p><strong>Demographics: </strong>{anime.demographics && anime.demographics.map(demo => demo.name).join(', ')}</p>
                                 <p><strong>Rating: </strong>{anime.rating}</p>
-                                <p className="mt-2"><strong>Synopsis:</strong></p>
-                                <p className="text-justify text-base">{anime.synopsis}</p>
-                            </div>
+                                <p className="mt-1"><strong>Synopsis:</strong></p>
+                                <p className="text-justify">{anime.synopsis}</p>
+                            </section>
                         </article>
                     </div>
-                    <div className="w-full mt-8">
+                    <div className="w-full mt-8 min-h-72">
                         <MoreDetails id={id} />
                     </div>
                 </div>
