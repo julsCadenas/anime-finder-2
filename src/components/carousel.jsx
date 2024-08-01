@@ -43,7 +43,7 @@ const Carousel = ({ animeList, title }) => {
                         <img 
                             src={anime.images.jpg.large_image_url} 
                             alt={anime.title} 
-                            className={`w-48 h-72 object-cover rounded-md ${isDragging ? 'pointer-events-none' : ''}`} 
+                            className={`w-48 h-72 object-cover rounded-md hover:w-60 transition-all ${isDragging ? 'pointer-events-none' : ''}`} 
                             onDragStart={handleDragStart}
                             onClick={() => !isDragging && animeClick(anime.mal_id)}
                         />
