@@ -52,6 +52,7 @@ const Search = ({ onClose }) => {
                         value={title}
                         onChange={handleInput}
                         onMouseDown={searchMouseDown} 
+                        autoFocus
                         className="w-11/12 md:w-full h-12 pl-3 bg-black bg-opacity-5 backdrop-filter backdrop-blur-sm border-b-2 border-transparent 
                                     focus:border-neutral-50 focus:outline-none font-Montserrat text-lg md:text-xl 
                                     text-neutral-50 mt-12 md:mt-20 transition-colors duration-300"
