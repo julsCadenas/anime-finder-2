@@ -83,6 +83,9 @@ const Header = () => {
                         <Link to='/airing'>Airing</Link>
                     </li>
                     <li className="cursor-pointer hover:text-gray-400 transition-colors">
+                        <Link to='/upcoming'>Upcoming</Link>
+                    </li>
+                    <li className="cursor-pointer hover:text-gray-400 transition-colors">
                         <svg
                             xmlns="http://www.w3.org/2000/svg"
                             className="icon icon-tabler icon-tabler-search"
@@ -133,6 +136,9 @@ const Header = () => {
                             </li>
                             <li className="cursor-pointer hover:text-gray-400 transition-colors" onClick={toggleSidebar}>
                                 <Link to='/airing'>Airing</Link>
+                            </li>
+                            <li className="cursor-pointer hover:text-gray-400 transition-colors" onClick={toggleSidebar}>
+                                <Link to='/upcoming'>Upcoming</Link>
                             </li>
                         </ul>
                     </div>
