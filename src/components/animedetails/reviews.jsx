@@ -14,7 +14,7 @@ const Staff = ({id}) => {
     }, [id]);
 
     return (
-        <>Staff</>
+        <>Reviews</>
     )
 }
 

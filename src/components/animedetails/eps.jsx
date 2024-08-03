@@ -30,6 +30,7 @@ const Episodes = ({ id }) => {
                                         <p><strong>{eps.title_japanese}</strong></p>
                                         <p><strong>Score: </strong>{eps.score}</p>
                                         <p><strong>Aired: </strong>{(eps.aired ? eps.aired.slice(0, 10) : 'No air date available')}</p>
+                                        <p><strong>Reviews: </strong><a className="hover:text-blue-400" href={eps.forum_url} target="_blank">MyAnimeList link</a></p>
                                     </section>
                                 </details> 
                             </li>
