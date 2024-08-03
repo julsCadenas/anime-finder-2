@@ -22,7 +22,13 @@ const Episodes = ({ id }) => {
                 ) : (
                     <ul>
                         {anime.map((eps, index) => (
-                            <li key={index}><strong>Episode {eps.mal_id}: </strong>{eps.title}</li>
+                            <>
+                                <li key={index}><strong>Episode {eps.mal_id}: </strong>{eps.title}</li>
+                                <details>
+                                    <summary>Show</summary>
+                                    <p><strong>Score: </strong>{eps.score}</p>
+                                </details> 
+                            </>
                         ))}
                     </ul>
                 )}

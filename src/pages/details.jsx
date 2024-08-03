@@ -8,6 +8,7 @@ const Details = () => {
     const { id } = useParams(); 
     const [anime, setAnime] = useState(null);
     const [isLoading, setIsLoading] = useState(true);
+    const [isExpanded, setIsExpanded] = useState(false);
 
     const link = `https://api.jikan.moe/v4/anime/${id}/full`;
 
@@ -17,6 +18,10 @@ const Details = () => {
             setIsLoading(false);
         });
     }, [id]);
+
+    const toggleExpanded = () => {
+        setIsExpanded(!isExpanded);
+    };
 
     return (
         <main className="flex justify-center min-h-screen pt-16">
@@ -57,7 +62,15 @@ const Details = () => {
                                 <p><strong>Demographics: </strong>{anime.demographics && anime.demographics.map(demo => demo.name).join(', ')}</p>
                                 <p><strong>Rating: </strong>{anime.rating}</p>
                                 <p className="mt-1"><strong>Synopsis:</strong></p>
-                                <p className="text-justify">{anime.synopsis}</p>
+                                <div className="text-justify inline">
+                                    {isExpanded ? anime.synopsis : `${anime.synopsis.slice(0, 200)}...`}
+                                    <button
+                                        className="text-gray-300 hover:text-gray-500 focus:outline-none ml-2"
+                                        onClick={toggleExpanded}
+                                    >
+                                        <strong>{isExpanded ? 'Read Less' : 'Read More'}</strong>
+                                    </button>
+                                </div>
                             </section>
                         </article>
                     </div>
