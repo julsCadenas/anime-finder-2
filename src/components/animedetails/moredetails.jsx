@@ -7,7 +7,7 @@ import Staff from './staff';
 import Recommendations from './recos';
 
 const MoreDetails = ({ id }) => {
-    const [activeTab, setActiveTab] = useState('Previews');
+    const [activeTab, setActiveTab] = useState('Episodes');
     const [isDropdownOpen, setDropdownOpen] = useState(false);
     const tabs = ['Previews', 'Episodes', 'Characters', 'Cast', 'Staff', 'Recommendations'];
 
@@ -45,8 +45,7 @@ const MoreDetails = ({ id }) => {
             <div className="md:hidden">
                 <button
                     onClick={handleDropdownToggle}
-                    className="text-neutral-50 bg-black focus:ring-4 focus:outline-none font-medium text-sm px-5 py-2.5 text-center 
-                    inline-flex items-center border-b-2"
+                    className="text-neutral-50 bg-black focus:ring-4 focus:outline-none font-medium px-5 py-2.5 text-center inline-flex items-center border-b-2"
                 >
                     {activeTab}
                     <svg
@@ -66,13 +65,13 @@ const MoreDetails = ({ id }) => {
                     </svg>
                 </button>
                 {isDropdownOpen && (
-                    <div className="absolute bg-black z-10 bg-opacity-60 backdrop-blur-md w-48">
+                    <div className="absolute bg-black z-10 bg-opacity-60 backdrop-blur-md w-full md:w-48">
                         <ul className="py-2">
                             {tabs.map((tab) => (
                                 <li key={tab}>
                                     <button
                                         onClick={() => handleTabClick(tab)}
-                                        className="block w-full text-left px-4 py-2 text-sm text-neutral-50 hover:bg-gray-500"
+                                        className="block w-full text-left px-4 py-2 text-base text-neutral-50 hover:bg-gray-500"
                                     >
                                         {tab}
                                     </button>
@@ -84,12 +83,12 @@ const MoreDetails = ({ id }) => {
             </div>
             {/* Desktop Tabs */}
             <div className="hidden md:block text-sm font-medium text-center text-neutral-50 border-b border-neutral-50 dark:text-gray-400 dark:border-gray-700">
-                <ul className="flex flex-wrap -mb-px">
+                <ul className="flex flex-wrap -mb-px w-full">
                     {tabs.map((tab) => (
-                        <li key={tab} className="mr-2">
+                        <li key={tab} className="flex-1">
                             <button
                                 onClick={() => setActiveTab(tab)}
-                                className={`inline-block p-4 border-b-2 rounded-t-lg text-xs md:text-base ${
+                                className={`w-full inline-block p-4 border-b-2 rounded-t-lg text-xs md:text-base ${
                                     activeTab === tab
                                         ? 'text-neutral-50 border-neutral-50'
                                         : 'border-transparent hover:text-gray-600 hover:border-gray-300 dark:hover:text-gray-300'
