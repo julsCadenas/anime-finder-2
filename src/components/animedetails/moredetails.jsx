@@ -6,7 +6,7 @@ import Reviews from './reviews';
 import Recommendations from './recos';
 
 const MoreDetails = ({ id }) => {
-    const [activeTab, setActiveTab] = useState('Episodes');
+    const [activeTab, setActiveTab] = useState('Previews');
     const [isDropdownOpen, setDropdownOpen] = useState(false);
     const tabs = ['Previews', 'Episodes', 'Characters', 'Reviews', 'Recommendations'];
 
