@@ -2,13 +2,14 @@ import React, { useState } from 'react';
 import Previews from './previews';
 import Episodes from './eps';
 import Characters from './characters';
+import Staff from './staff';
 import Reviews from './reviews';
 import Recommendations from './recos';
 
 const MoreDetails = ({ id }) => {
-    const [activeTab, setActiveTab] = useState('Previews');
+    const [activeTab, setActiveTab] = useState('Staff');
     const [isDropdownOpen, setDropdownOpen] = useState(false);
-    const tabs = ['Previews', 'Episodes', 'Characters', 'Reviews', 'Recommendations'];
+    const tabs = ['Previews', 'Episodes', 'Characters', 'Staff', 'Reviews', 'Recommendations'];
 
     const renderTabs = () => {
         switch (activeTab) {
@@ -18,6 +19,8 @@ const MoreDetails = ({ id }) => {
                 return <Episodes id={id} />;
             case 'Characters':
                 return <Characters id={id} />;
+            case 'Staff':
+                return <Staff id={id} />;
             case 'Reviews':
                 return <Reviews id={id} />;
             case 'Recommendations':
