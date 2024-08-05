@@ -32,15 +32,16 @@ const Characters = ({id}) => {
                                         </div>
                                     </summary>
                                     <aside className="ml-10">
-                                    { chars.voice_actors.map((actor, index) => (
-                                        <summary key={index} className="flex items-center mb-2 text-right">
-                                            <div className="flex flex-col mr-2">
-                                                <p>{actor.person.name}</p>
-                                                <p>{actor.language}</p>
-                                            </div>
-                                            <img className="w-16 md:w-20 rounded-md" src={actor.person.images.jpg.image_url} alt={actor.person.name}></img>
-                                        </summary>
-                                    ))}
+                                        {chars.voice_actors.filter(actor => actor.language === "Japanese").map((actor, index) => (
+                                                <summary key={index} className="flex items-center mb-2 text-right">
+                                                    <div className="flex flex-col mr-2">
+                                                        <p>{actor.person.name}</p>
+                                                        <p>{actor.language}</p>
+                                                    </div>
+                                                    <img className="w-16 md:w-20 rounded-md" src={actor.person.images.jpg.image_url} alt={actor.person.name}></img>
+                                                </summary>
+                                            ))
+                                        }
                                     </aside>
                                 </div>
                             </li>
