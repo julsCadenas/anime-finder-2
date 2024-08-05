@@ -2,7 +2,7 @@ import fetchAnime from "../../modules/fetchanime";
 import React, { useEffect, useState } from 'react';
 import Loading from "../loading";
 
-const Characters = ({id}) => {
+const Characters = ({ id }) => {
     const [anime, setAnime] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
     const link = `https://api.jikan.moe/v4/anime/${id}/characters`;
@@ -22,26 +22,25 @@ const Characters = ({id}) => {
                 ) : (
                     <ul className="font-Montserrat text-sm md:text-base">
                         {anime.map((chars, index) => (
-                            <li key={index} className="my-2 mb-5 md:mx-24">
+                            <li key={index} className="my-4 -mx-3 md:mx-24">
                                 <div className="flex items-center justify-between">
-                                    <summary className="flex text-left">
-                                        <img className="w-16 md:w-20 rounded-md" src={chars.character.images.jpg.image_url} alt={chars.character.name}></img>
-                                        <div className="flex flex-col justify-center ml-2">
-                                            <p><strong>{chars.character.name}</strong></p>
+                                    <div className="flex items-center flex-1">
+                                        <img className="w-16 md:w-20 rounded-md" src={chars.character.images.jpg.image_url} alt={chars.character.name} />
+                                        <div className="ml-4 flex flex-col">
+                                            <p className="font-bold">{chars.character.name}</p>
                                             <p>{chars.role}</p>
                                         </div>
-                                    </summary>
-                                    <aside className="ml-10">
+                                    </div>
+                                    <aside className="flex flex-col items-end ml-8">
                                         {chars.voice_actors.filter(actor => actor.language === "Japanese").map((actor, index) => (
-                                                <summary key={index} className="flex items-center mb-2 text-right">
-                                                    <div className="flex flex-col mr-2">
-                                                        <p>{actor.person.name}</p>
-                                                        <p>{actor.language}</p>
-                                                    </div>
-                                                    <img className="w-16 md:w-20 rounded-md" src={actor.person.images.jpg.image_url} alt={actor.person.name}></img>
-                                                </summary>
-                                            ))
-                                        }
+                                            <div key={index} className="flex items-center mb-2">
+                                                <div className="flex flex-col mr-2 text-right">
+                                                    <p>{actor.person.name}</p>
+                                                    <p>{actor.language}</p>
+                                                </div>
+                                                <img className="w-16 md:w-20 rounded-md" src={actor.person.images.jpg.image_url} alt={actor.person.name} />
+                                            </div>
+                                        ))}
                                     </aside>
                                 </div>
                             </li>
@@ -50,7 +49,7 @@ const Characters = ({id}) => {
                 )}
             </div>
         </main>
-    )
+    );
 }
 
 export default Characters;
