@@ -91,7 +91,7 @@ const MoreDetails = ({ id }) => {
                                 className={`w-full inline-block p-4 border-b-2 rounded-t-lg text-xs md:text-base ${
                                     activeTab === tab
                                         ? 'text-neutral-50 border-neutral-50'
-                                        : 'border-transparent hover:text-gray-600 hover:border-gray-300'
+                                        : 'border-transparent hover:text-neutral-50 hover:border-neutral-50'
                                 }`}
                             >
                                 {tab}

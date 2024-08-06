@@ -36,6 +36,8 @@ const Recommendations = ({ id }) => {
 
     return (
         <section className="relative max-w-80 md:max-w-full">
+        { isLoading ? <Loading /> :
+            <>
             <div
                 ref={scrollRef}
                 className="flex space-x-2"
@@ -67,6 +69,8 @@ const Recommendations = ({ id }) => {
                     display: none;
                 }
             `}</style>
+            </>
+        }
         </section>
     )
 }
