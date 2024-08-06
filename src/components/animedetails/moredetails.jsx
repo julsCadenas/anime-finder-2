@@ -82,7 +82,7 @@ const MoreDetails = ({ id }) => {
                 )}
             </div>
             {/* Desktop Tabs */}
-            <div className="hidden md:block text-sm font-medium text-center text-neutral-50 border-b border-neutral-50 dark:text-gray-400 dark:border-gray-700">
+            <div className="hidden md:block text-sm font-medium text-center border-b text-gray-400 border-gray-700">
                 <ul className="flex flex-wrap -mb-px w-full">
                     {tabs.map((tab) => (
                         <li key={tab} className="flex-1">
@@ -91,7 +91,7 @@ const MoreDetails = ({ id }) => {
                                 className={`w-full inline-block p-4 border-b-2 rounded-t-lg text-xs md:text-base ${
                                     activeTab === tab
                                         ? 'text-neutral-50 border-neutral-50'
-                                        : 'border-transparent hover:text-gray-600 hover:border-gray-300 dark:hover:text-gray-300'
+                                        : 'border-transparent hover:text-gray-600 hover:border-gray-300'
                                 }`}
                             >
                                 {tab}
