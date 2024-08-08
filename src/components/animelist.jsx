@@ -1,4 +1,4 @@
-import fetchAnime from '../utils/fetchanime';
+import fetchAnime from '../utils/fetchdata';
 import React, { useEffect, useState } from 'react';
 import Loading from '../components/loading';
 import Pagination from '../components/pagination';
@@ -6,18 +6,20 @@ import Pagination from '../components/pagination';
 const AnimeList = ({ title, pageLink, onAnimeClick, pageNum, setPageNum }) => {
     const [anime, setAnime] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
+    const [lastVisiblePage, setLastVisiblePage] = useState(1);
 
     useEffect(() => {
         const fetchPage = async () => {
             fetchAnime(pageLink, (data) => {
-                setAnime(data); 
+                setAnime(data.data); 
+                if (data.pagination) {
+                    setLastVisiblePage(data.pagination.last_visible_page); 
+                }
                 setIsLoading(false);
             });
         };
         fetchPage();
     }, [pageLink]);
-
-    
 
     return (
         <main className='pt-20 font-Montserrat'>
@@ -37,7 +39,7 @@ const AnimeList = ({ title, pageLink, onAnimeClick, pageNum, setPageNum }) => {
                 </ul>
             }
             </>
-            <Pagination anime={anime} pageNum={pageNum} setPageNum={setPageNum} />
+            <Pagination anime={anime} pageNum={pageNum} setPageNum={setPageNum} lastVisiblePage={lastVisiblePage} />
         </main>
     );
 };
