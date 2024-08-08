@@ -1,4 +1,4 @@
-import fetchAnime from "../../modules/fetchanime";
+import fetchAnime from "../../utils/fetchanime";
 import React, { useEffect, useState } from 'react';
 import Loading from "../loading";
 

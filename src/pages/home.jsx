@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import Carousel from '../components/carousel';
 import Trailers from '../components/trailers';
-import fetchAnime from '../modules/fetchanime';
+import fetchAnime from '../utils/fetchanime';
 import Loading from '../components/loading';
 
 const Home = () => {
@@ -11,9 +11,11 @@ const Home = () => {
     const [season, setSeason] = useState('');
     const [isLoading, setIsLoading] = useState(true);
 
-    const topLink = 'https://api.jikan.moe/v4/top/anime';
-    const latestLink = 'https://api.jikan.moe/v4/seasons/now';
-    const upcomingLink = 'https://api.jikan.moe/v4/seasons/upcoming';
+    let latestPage = Math.floor(Math.random() * 6) + 1;
+    let upcomingPage = Math.floor(Math.random()* 18) + 1;
+    const topLink = 'https://api.jikan.moe/v4/top/anime?sfw=true';
+    const latestLink = `https://api.jikan.moe/v4/seasons/now?sfw=true`;
+    const upcomingLink = `https://api.jikan.moe/v4/seasons/upcoming?page=${upcomingPage}&sfw=true`;
 
     const getSeason = (anime) => {
         if(anime.length > 0){
@@ -53,15 +55,15 @@ const Home = () => {
                 <Loading />
             ) : (
                 <>
-                    <Carousel animeList={animeLatest} title={season} nav='/airing'/>
+                    <Carousel animeList={animeLatest} title={season} shuffle={true} nav='/airing'/>
                     <div>
                         <Trailers animeLatest={animeLatest} />
                     </div>
                     <div className="pb-10 pt-10">
-                        <Carousel animeList={animeUpcoming} title={`Upcoming Anime`}/>
+                        <Carousel animeList={animeUpcoming} title={`Upcoming Anime`} shuffle={true} nav='/upcoming'/>
                     </div>
                     <div className="pb-10 pt-16 md:pt-10">
-                        <Carousel animeList={animeList} title={`Top Anime`} nav='top'/>
+                        <Carousel animeList={animeList} title={`Top Anime`} shuffle={false} nav='/top'/>
                     </div>
                 </>
             )}

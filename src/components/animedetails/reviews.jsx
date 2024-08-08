@@ -1,4 +1,4 @@
-import fetchAnime from "../../modules/fetchanime";
+import fetchAnime from "../../utils/fetchanime";
 import React, { useEffect, useState } from 'react';
 import Loading from "../loading";
 
@@ -11,7 +11,6 @@ const Reviews = ({ id }) => {
     useEffect(() => {
         fetchAnime(link, (data) => {
             setAnime(data);
-            console.log(data);
             setIsLoading(false);
         });
     }, [id]);

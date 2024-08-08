@@ -1,4 +1,4 @@
-import fetchAnime from "../../modules/fetchanime";
+import fetchAnime from "../../utils/fetchanime";
 import React, { useEffect, useState, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import useScrollOnDrag from 'react-scroll-ondrag';

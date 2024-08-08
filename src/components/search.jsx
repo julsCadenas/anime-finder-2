@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import fetchAnime from '../modules/fetchanime';
+import fetchAnime from '../utils/fetchanime';
 import Loading from './loading';
 
 const Search = ({ onClose }) => {

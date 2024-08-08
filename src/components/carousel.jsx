@@ -1,9 +1,10 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import useScrollOnDrag from 'react-scroll-ondrag';
 
-const Carousel = ({ animeList, title, nav }) => {
+const Carousel = ({ animeList, title, nav, shuffle }) => {
     const [isDragging, setIsDragging] = useState(false);
+    const [shuffleAnime, setShuffleAnime] = useState([]);
     const scrollRef = useRef(null);
     const navigate = useNavigate();
     const { events } = useScrollOnDrag(scrollRef, {
@@ -25,6 +26,25 @@ const Carousel = ({ animeList, title, nav }) => {
     const handleTitleClick = () => {
         navigate(nav); 
     };
+
+    const shuffleArray = (array) => {
+        let shuffledArray = [...array];
+        for (let i = shuffledArray.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [shuffledArray[i], shuffledArray[j]] = [shuffledArray[j], shuffledArray[i]];
+        }
+        return shuffledArray;
+    };
+
+    useEffect(() => {
+        if (animeList && animeList.length > 0) {
+            if (shuffle) {
+                setShuffleAnime(shuffleArray(animeList));
+            } else {
+                setShuffleAnime(animeList);
+            }
+        }
+    }, [animeList, shuffle]);
 
     return (
         <section className="relative">
@@ -56,7 +76,7 @@ const Carousel = ({ animeList, title, nav }) => {
                 }}
                 {...events}
             >
-                {animeList.map(anime => (
+                {shuffleAnime.map(anime => (
                     <div key={anime.mal_id} className="min-w-max cursor-pointer">
                         <img 
                             src={anime.images.jpg.large_image_url} 

@@ -10,7 +10,7 @@ const fetchAnime = async (link, setAnimeList, retryCount = 0) => {
             console.warn(`Rate limit hit, retrying after ${retryAfter / 1000} seconds...`);
             setTimeout(() => fetchAnime(link, setAnimeList, retryCount + 1), retryAfter);
         } else {
-            console.error('Error fetching top anime:', e);
+            console.error('Error fetching anime:', e);
         }
     }
 };
