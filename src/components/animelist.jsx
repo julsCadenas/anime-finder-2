@@ -23,6 +23,7 @@ const AnimeList = ({ title, pageLink, onAnimeClick, pageNum, setPageNum }) => {
 
     return (
         <main className='pt-20 font-Montserrat'>
+        { isLoading ? <Loading /> : (
             <>
             <p className='text-neutral-50 font-Montserrat text-2xl font-bold flex justify-center mb-4'>{title}</p>
             {isLoading ? <Loading /> :
@@ -38,8 +39,9 @@ const AnimeList = ({ title, pageLink, onAnimeClick, pageNum, setPageNum }) => {
                     ))}
                 </ul>
             }
-            </>
             <Pagination anime={anime} pageNum={pageNum} setPageNum={setPageNum} lastVisiblePage={lastVisiblePage} />
+            </>
+        )}
         </main>
     );
 };

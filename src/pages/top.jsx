@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import AnimeList from '../components/animelist';
-import Pagination from '../components/pagination';
 
 const Top = () => {
     const [pageNum, setPageNum] = useState(1);

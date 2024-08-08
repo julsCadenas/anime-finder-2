@@ -3,6 +3,7 @@ import { useParams } from 'react-router-dom';
 import Loading from '../components/loading';
 import fetchAnime from '../utils/fetchanime';
 import MoreDetails from '../components/animedetails/moredetails';
+import ScrollToTop from '../components/scroll';
 
 const Details = () => {
     const { id } = useParams(); 
@@ -94,6 +95,7 @@ const Details = () => {
                     </div>
                 </div>
             )}
+            <ScrollToTop />
         </main>
     );
 };
