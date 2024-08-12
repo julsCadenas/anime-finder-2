@@ -5,7 +5,7 @@ import Search from "./search";
 const Header = () => {
     const [isSidebarOpen, setIsSidebarOpen] = useState(false);
     const [isSearchOpen, setIsSearchOpen] = useState(false); 
-    const navigate = useNavigate();
+    // const navigate = useNavigate();
 
     const toggleSidebar = () => {
         setIsSidebarOpen(!isSidebarOpen);
